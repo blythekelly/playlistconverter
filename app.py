@@ -5,6 +5,8 @@ import requests
 collections.MutableSequence = collections.abc.MutableSequence
 collections.Iterable = collections.abc.Iterable
 from flask_navigation import Navigation
+# Import Azure SQL helper code
+from azuresqlconnector import *
 
   
 app = Flask(__name__)
