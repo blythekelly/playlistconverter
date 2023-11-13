@@ -9,17 +9,6 @@ from flask_navigation import Navigation
   
 app = Flask(__name__)
 
-nav = Navigation(app)
-
-# Initialize navigations
-# Navigations have a label and a reference that ties to one of the functions below
-nav.Bar('top', [
-    nav.Item('Home', 'index'),
-    nav.Item('Modal Example', 'modal'), 
-    nav.Item('Form Example', 'form'),
-    nav.Item('Display Table Example', 'table')
-])
-
 @app.route('/') 
 def index():
     return render_template('form-example-home.html')
