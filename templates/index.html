@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/form-example.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="topnav"> 
+        {% for item in nav.top %}
+        <a class="{{ 'active' if item.is_active else '' }}" href="{{ item.url }}">{{ item.label }}</a>
+        {% endfor %} 
+    </div>
+    
+   <h1>Group Project App</h1>
+   <p>This application is a playlist parser that will convert your playlist on one service to a playlist on another service.</p>
+   <p>Explore the application to parse your playlist</p>
+</body>
+</html>
