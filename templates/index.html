@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/form-example.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <title>Home</title>
 </head>
 <body>
     <!-- Navigation Menu -->
-    <div class="topnav"> 
-        {% for item in nav.top %}
-        <a class="{{ 'active' if item.is_active else '' }}" href="{{ item.url }}">{{ item.label }}</a>
-        {% endfor %} 
-    </div>
-    
-   <h1>Group Project App</h1>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#parse">Playlist Parser</a>
+      </div>
+
+   <center><h1>Group Project App</h1>
    <p>This application is a playlist parser that will convert your playlist on one service to a playlist on another service.</p>
-   <p>Explore the application to parse your playlist</p>
+   <p>Search for a song on YouTube Music below</p>
+   <input type="text" placeholder="Search.."></center>
 </body>
 </html>

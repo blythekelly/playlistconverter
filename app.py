@@ -4,9 +4,9 @@ import collections
 import requests
 collections.MutableSequence = collections.abc.MutableSequence
 collections.Iterable = collections.abc.Iterable
-from flask_navigation import Navigation
+#from flask_navigation import Navigation
 # Import Azure SQL helper code
-from azuresqlconnector import *
+#from azuresqlconnector import *
 
   
 app = Flask(__name__)
