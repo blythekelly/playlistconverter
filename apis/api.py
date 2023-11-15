@@ -15,5 +15,5 @@ class API(ABC):
         pass
 
     @abstractmethod
-    def create_playlist(self, songs: list[Song]):
+    def create_playlist(self, name: str, songs: list[Song]):
         pass
