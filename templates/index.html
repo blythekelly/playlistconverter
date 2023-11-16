@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/form-example.css') }}">
     <title>Home</title>
 </head>
 <body>
     <!-- Navigation Menu -->
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#parse">Playlist Parser</a>
+    <div class="sidenav">
+        <a href="/">Home</a>
+        <a href="/library">Your Library</a>
+        <a href="/parse">Parse Playlist</a>
+        <a href="/login">Log In</a>
       </div>
+      
+    <div>
+        <center>
+            <h1 style="color:white;">Playlist Parser</h1>
+            <p style="color:white;">This application is a playlist parser that will convert your playlist on one service to a playlist on another service.</p>
+            <p style="color:white;">Explore the application to parse your playlist</p>
+            <input type="text" placeholder="Search for a song...">
+         </center>
+    </div>
 
-   <center><h1>Group Project App</h1>
-   <p>This application is a playlist parser that will convert your playlist on one service to a playlist on another service.</p>
-   <p>Search for a song on YouTube Music below</p>
-   <input type="text" placeholder="Search.."></center>
 </body>
 </html>
