@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="sidenav">
+        <a href="/">Home</a>
+        <a href="/library">Your Library</a>
+        <a href="/parse">Parse Playlist</a>
+        <a href="/login">Log In</a>
+      </div>
+      
+    <div>
+        <center>
+            <h1 style="color:white;">Log In</h1>
+            <p style="color:white;">Please enter your username and password</p>
+            <div class="search">
+                <form action="#">
+                    <input type="text"
+                           placeholder="Username"
+                           name="user">
+                           <div>
+                    <input type="text"
+                           placeholder="Password"
+                           name="pass">
+                        </div>
+                </form>
+            </div>
+         </center>
+    </div>
+
+</body>
+</html>
