@@ -13,8 +13,7 @@ from .playlist import Playlist
 
 
 def get_client_id() -> str:
-    with open('keys/spotify/id') as file:
-        return file.readline()
+    return '2f94b612382c4c0a82feb3c7289b3043'
 
 
 @dataclass

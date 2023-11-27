@@ -22,8 +22,7 @@ auth = {service: {} for service in apis}
 
 def get_spotify_client_id() -> str:
     # TODO: Use Azure Key Vault.
-    with open('keys/spotify/id') as file:
-        return file.readline()
+    return '2f94b612382c4c0a82feb3c7289b3043'
 
 
 def authenticate(service: str, redirect: str):
@@ -42,13 +41,13 @@ def authenticate_spotify(dest: str):
     redirect_uri = f'http://127.0.0.1:5000/spotify-auth?dest={quote(dest, safe='')}'
 
     params = urlencode({
-            'client_id': auth['spotify']['id'],
-            'redirect_uri': redirect_uri,
-            'response_type': 'code',
-            'code_challenge': challenge,
-            'code_challenge_method': 'S256',
-            'scope': 'playlist-modify-public playlist-modify-private playlist-read-private',
-            # TODO: Add 'state': <value>,
+        'client_id': auth['spotify']['id'],
+        'redirect_uri': redirect_uri,
+        'response_type': 'code',
+        'code_challenge': challenge,
+        'code_challenge_method': 'S256',
+        'scope': 'playlist-modify-public playlist-modify-private playlist-read-private',
+        # TODO: Add 'state': <value>,
     })
 
     auth['spotify']['verifier'] = verifier
@@ -64,9 +63,7 @@ def complete_spotify_auth():
         return render_template('failed-authentication.html')
 
     apis['spotify'] = SpotifyAPI(
-        request.args['code'],
-        auth['spotify']['verifier'],
-        auth['spotify']['redirect']
+        request.args['code'], auth['spotify']['verifier'], auth['spotify']['redirect']
     )
 
     return redirect(unquote(request.args['dest']))
@@ -87,7 +84,9 @@ def load_playlist():
     if api is None:
         return authenticate(service, redirect=request.full_path)
 
-    return render_template('load-playlist.html', service=service, playlists=api.get_user_playlists())
+    return render_template(
+        'load-playlist.html', service=service, playlists=api.get_user_playlists()
+    )
 
 
 @app.route('/convert-playlist')
@@ -145,7 +144,6 @@ if __name__ == '__main__':
     auth['spotify']['id'] = get_spotify_client_id()
 
     # Set a secret key so we can use `flask.session`.
-    with open('keys/flask/secret', 'rb') as file:
-        app.secret_key = file.readline()
+    app.secret_key = b'.\x93\x9b\x80\xa6\x8b^6-\x03n(\xad\x14xu\x9d1\x8d\xb8!)sr\xf5\x98)\xa4\xc9B+]'
 
     app.run(debug=True)
