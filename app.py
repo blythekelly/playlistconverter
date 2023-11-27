@@ -140,10 +140,9 @@ def choose_service():
     return render_template('choose-service.html', redirect=request.args['redirect'])
 
 
-if __name__ == '__main__':
-    auth['spotify']['id'] = get_spotify_client_id()
+auth['spotify']['id'] = get_spotify_client_id()
 
-    # Set a secret key so we can use `flask.session`.
-    app.secret_key = b'.\x93\x9b\x80\xa6\x8b^6-\x03n(\xad\x14xu\x9d1\x8d\xb8!)sr\xf5\x98)\xa4\xc9B+]'
+# Set a secret key so we can use `flask.session`.
+app.secret_key = b'.\x93\x9b\x80\xa6\x8b^6-\x03n(\xad\x14xu\x9d1\x8d\xb8!)sr\xf5\x98)\xa4\xc9B+]'
 
-    app.run(debug=True)
+app.run(debug=True)
