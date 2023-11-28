@@ -38,7 +38,7 @@ def authenticate_spotify(dest: str):
     verifier = secrets.token_urlsafe(100)[:64].encode()
     challenge = urlsafe_b64encode(sha256(verifier).digest()).decode().rstrip('=')
 
-    redirect_uri = f'http://127.0.0.1:5000/spotify-auth?dest={quote(dest, safe='')}'
+    redirect_uri = f'http://127.0.0.1:8000/spotify-auth?dest={quote(dest, safe='')}'
 
     params = urlencode({
         'client_id': auth['spotify']['id'],
