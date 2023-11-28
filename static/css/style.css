@@ -1,37 +1,27 @@
-body {
-    font-family: "Lato", sans-serif;
-    background:  #111;
-  }
-
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color:black;
-  overflow-x: hidden;
-  padding-top: 20px;
+* {
+  font-family: Lato, sans-serif;
+  color: ghostwhite;
+  background-color: #121212;
 }
 
-.sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
+h1 {
+  text-align: center;
+  padding-bottom: 50px;
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
+.instruction {
+  text-align: center;
+  font-size: x-large;
 }
 
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-}
+#services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  /* Disable the default bullets and padding for list items. */
+  list-style-type: none;
+  padding-left: 0;
 }

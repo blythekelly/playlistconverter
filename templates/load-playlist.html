@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Load Playlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/playlist-picker.css') }}"
 </head>
 <body>
-    <h1>Pick a playlist</h1>
-    <ul>
+    <h1>Playlist Converter</h1>
+
+    <p class="instruction">Load a playlist<p>
+    <ul id="playlists">
         {% for playlist in playlists %}
         <li>
-            <div>
+            <div class="playlist">
                 <a href="/convert-playlist?source={{ service }}&id={{ playlist.id }}">
-                    <img src={{ playlist.image }}>
-                    {{ playlist.title }}
+                    <div>
+                        <img class="playlist-cover" src="{{ playlist.image }}" height="200px" width="200px">
+                        <p class="playlist-name">{{ playlist.title }}</p>
+                    </div>
                 </a>
             </div>
         </li>

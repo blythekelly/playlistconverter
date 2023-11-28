@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/service-picker.css') }}">
 </head>
 <body>
-    <ul>
-        <li><a href="{{ redirect }}?service=spotify">Spotify</a></li>
-        <!-- <li><a href="{{ redirect }}?service=youtube-music">YouTube Music</a></li> -->
+    <h1>Choose a service</h1>
+
+    <ul id="services">
+        <li>
+            <a href="{{ redirect }}?service=spotify">
+                <div><img src="{{ url_for('static', filename='logos/spotify.png') }}" alt="Spotify logo" height="80px"></div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ redirect }}?service=youtube-music">
+                <div><img src="{{ url_for('static', filename='logos/youtube-music.svg') }}" alt="YouTube Music logo" height="80px"></div>
+            </a>
+        </li>
     </ul>
 </body>
 </html>

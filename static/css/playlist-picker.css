@@ -1,0 +1,54 @@
+* {
+  font-family: Lato, sans-serif;
+  color: ghostwhite;
+  background-color: #121212;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.instruction {
+  text-align: center;
+  font-size: x-large;
+}
+
+#playlists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+
+  /* Disable the default bullets and padding for list items. */
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.playlist {
+  transition: 200ms;
+  width: 200px;
+}
+
+.playlist:hover {
+  transform: scale(1.1);
+}
+
+.playlist-cover {
+  /* Crop non-square images. */
+  object-fit: cover;
+}
+
+.playlist a {
+  /* Disable link underline. */
+  text-decoration: none;
+}
+
+.playlist-name {
+  text-align: center;
+
+  /* Truncate long playlist names. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

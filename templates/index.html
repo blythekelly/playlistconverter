@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playlist Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <a href="/choose-service?redirect=load-playlist">Load playlist</a>
+    <h1>Playlist Converter</h1>
+
+    <p class="instruction">Load a playlist from...</p>
+
+    <ul id="services">
+        <li>
+            <a href="/load-playlist?service=spotify">
+                <div><img src="{{ url_for('static', filename='logos/spotify.png') }}" alt="Spotify logo" height="80px"></div>
+            </a>
+        </li>
+        <li>
+            <a href="/load-playlist?service=youtube-music">
+                <div><img src="{{ url_for('static', filename='logos/youtube-music.svg') }}" alt="YouTube Music logo" height="80px"></div>
+            </a>
+        </li>
+    </ul>
 </body>
 </html>

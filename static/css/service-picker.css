@@ -1,0 +1,22 @@
+* {
+    font-family: Lato, sans-serif;
+    color: ghostwhite;
+    background-color: #121212;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#services {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+#services li {
+    padding: 20px;
+}
