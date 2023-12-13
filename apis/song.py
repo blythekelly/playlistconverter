@@ -10,6 +10,23 @@ class Song:
     album: str | None = None
     released: datetime.date | None = None
 
+    def serialize(self) -> tuple:
+        return (
+            self.title,
+            self.artists,
+            self.album,
+            self.released.isoformat() if self.released else None
+        )
+
+    @classmethod
+    def deserialize(cls, data: tuple) -> 'Song':
+        title, artists, album, released = data
+
+        if released:
+            released = datetime.datetime.fromisoformat(released)
+
+        return Song(title, artists, album, released)
+
     def to_json(self) -> str:
         return json.dumps({
             'title': self.title,

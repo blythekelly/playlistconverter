@@ -1,5 +1,6 @@
 from base64 import urlsafe_b64encode
 from hashlib import sha256
+import json
 import secrets
 from urllib.parse import quote, unquote, urlencode
 from uuid import uuid4
@@ -117,8 +118,9 @@ def convert_playlist():
 
     template = render_template('convert-playlist.html')
     response = make_response(template)
-    songs = '[' + ','.join(song.to_json() for song in api.get_playlist(request.args['id'])) + ']'
-    response.set_cookie('songs', songs)
+    songs = [song.serialize() for song in api.get_playlist(request.args['id'])]
+    response.set_cookie('songs', json.dumps(songs))
+
     return response
 
 
@@ -152,7 +154,7 @@ def save_playlist_post():
     if api is None:
         raise RuntimeError("couldn't access API")
 
-    songs = [Song.from_json(x) for x in request.cookies['songs']]
+    songs = [Song.deserialize(x) for x in json.loads(request.cookies['songs'])]
     api.create_playlist(name, songs)
 
     return redirect('/')
